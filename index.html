@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>GLP-1 Price Transparency — Public (anonymized)</title>
+<style>
+:root {
+  --surface-1:#fcfcfb; --page:#f9f9f7; --ink:#0b0b0b; --ink-2:#52514e;
+  --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+  --series-1:#2a78d6; --good:#0ca30c; --critical:#d03b3b;
+  --border:rgba(11,11,11,0.10);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-1:#1a1a19; --page:#0d0d0d; --ink:#ffffff; --ink-2:#c3c2b7;
+    --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+    --series-1:#3987e5; --border:rgba(255,255,255,0.10);
+  }
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--page); color:var(--ink);
+  font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+.wrap { max-width:1100px; margin:0 auto; padding:16px; }
+.status { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center;
+  padding:10px 14px; border-radius:8px; border:1px solid var(--border);
+  background:var(--surface-1); margin-bottom:16px; }
+.dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+.badge { font-weight:600; }
+.note { color:var(--ink-2); font-size:12px; }
+.tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px; margin-bottom:20px; }
+.tile { background:var(--surface-1); border:1px solid var(--border);
+  border-radius:8px; padding:12px 14px; }
+.tile .v { font-size:28px; font-weight:650; }
+.tile .l { color:var(--ink-2); font-size:12px; margin-top:2px; }
+h2 { font-size:15px; margin:24px 0 8px; }
+.card { background:var(--surface-1); border:1px solid var(--border);
+  border-radius:8px; padding:14px; overflow-x:auto; }
+.chart { display:flex; align-items:flex-end; gap:6px; height:140px;
+  padding-top:18px; }
+.bar-col { flex:1; display:flex; flex-direction:column; align-items:center;
+  justify-content:flex-end; height:100%; min-width:24px; }
+.bar { width:70%; max-width:34px; background:var(--series-1);
+  border-radius:4px 4px 0 0; }
+.bar-val { font-size:11px; color:var(--ink-2); margin-bottom:2px;
+  font-variant-numeric:tabular-nums; }
+.bar-x { font-size:11px; color:var(--muted); margin-top:4px;
+  border-top:1px solid var(--axis); width:100%; text-align:center;
+  padding-top:3px; }
+table { border-collapse:collapse; width:100%; font-size:13px; }
+th, td { padding:6px 10px; text-align:left; border-bottom:1px solid var(--grid);
+  white-space:nowrap; }
+th { cursor:pointer; user-select:none; color:var(--ink-2); font-weight:600;
+  position:sticky; top:0; background:var(--surface-1); }
+th:hover { color:var(--ink); }
+td { font-variant-numeric:tabular-nums; }
+a { color:var(--series-1); }
+ul { margin:6px 0; padding-left:20px; }
+.muted { color:var(--muted); }
+footer { color:var(--muted); font-size:12px; margin:24px 0; }
+</style></head><body><div class="wrap">
+<div class="status" id="statusbar">
+  <span class="dot" id="dot" style="background:var(--muted)"></span>
+  <span class="badge" id="statustext">run status…</span>
+  <span class="note" id="staleness"></span>
+  <span class="note" style="margin-left:auto">匿名化済み公開版 — 医療機関名・URL・住所・根拠テキストは含まれません。</span>
+</div>
+<h1 style="font-size:18px;margin:0 0 14px">GLP-1 Price Transparency — Public (anonymized)</h1>
+<p class="note" style="margin:0 0 10px">
+二段階クロール: screened=20 (分母),
+GLP-1 related=4,
+deep-crawled=4
+(GLP-1提供率 20.0%)</p>
+<div class="tiles">
+  <div class="tile"><div class="v">20</div><div class="l">スクリーニング済(分母)</div></div>
+  <div class="tile"><div class="v">4</div><div class="l">GLP-1関連あり</div></div>
+  <div class="tile"><div class="v">4</div><div class="l">深掘りクロール済</div></div>
+  <div class="tile"><div class="v">4</div><div class="l">価格掲載あり</div></div>
+  <div class="tile"><div class="v">0</div><div class="l">総額見積可</div></div>
+  <div class="tile"><div class="v">7.5</div><div class="l">スコア中央値 /10</div></div>
+</div>
+<h2>前回スナップショットからの変化 (Changes since previous snapshot)</h2>
+<div class="card"><ul><li class='muted'>前回スナップショットからの変化はありません (no changes / first snapshot)</li></ul></div>
+<h2>透明性スコア分布 (Transparency score distribution, 0–10)</h2>
+<div class="card"><div class="chart"><div class="bar-col" title="スコア0: 0院"><span class="bar-val"></span><div class="bar" style="height:1%"></div><span class="bar-x">0</span></div><div class="bar-col" title="スコア1: 0院"><span class="bar-val"></span><div class="bar" style="height:1%"></div><span class="bar-x">1</span></div><div class="bar-col" title="スコア2: 0院"><span class="bar-val"></span><div class="bar" style="height:1%"></div><span class="bar-x">2</span></div><div class="bar-col" title="スコア3: 0院"><span class="bar-val"></span><div class="bar" style="height:1%"></div><span class="bar-x">3</span></div><div class="bar-col" title="スコア4: 0院"><span class="bar-val"></span><div class="bar" style="height:1%"></div><span class="bar-x">4</span></div><div class="bar-col" title="スコア5: 0院"><span class="bar-val"></span><div class="bar" style="height:1%"></div><span class="bar-x">5</span></div><div class="bar-col" title="スコア6: 1院"><span class="bar-val">1</span><div class="bar" style="height:50%"></div><span class="bar-x">6</span></div><div class="bar-col" title="スコア7: 1院"><span class="bar-val">1</span><div class="bar" style="height:50%"></div><span class="bar-x">7</span></div><div class="bar-col" title="スコア8: 2院"><span class="bar-val">2</span><div class="bar" style="height:100%"></div><span class="bar-x">8</span></div><div class="bar-col" title="スコア9: 0院"><span class="bar-val"></span><div class="bar" style="height:1%"></div><span class="bar-x">9</span></div><div class="bar-col" title="スコア10: 0院"><span class="bar-val"></span><div class="bar" style="height:1%"></div><span class="bar-x">10</span></div></div></div>
+<h2>クリニック一覧 — 深掘りクロール対象(GLP-1関連)のみ (click a header to sort)</h2>
+<div class="card"><table id="tbl"><thead><tr>
+<th>匿名ID</th><th>区・市</th><th>スコア</th>
+<th>価格</th><th>初診料</th><th>再診料</th><th>処方料</th><th>送料</th><th>税表示</th><th>総額見積可</th><th>取得日</th>
+</tr></thead><tbody><tr><td data-v="千代田区-F">千代田区-F</td><td data-v="千代田区">千代田区</td><td data-v="6">6</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="0">—</td><td data-v="1">✓</td><td data-v="0">—</td><td data-v="2026-07-06">2026-07-06</td></tr><tr><td data-v="千代田区-G">千代田区-G</td><td data-v="千代田区">千代田区</td><td data-v="8">8</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="0">—</td><td data-v="2026-07-06">2026-07-06</td></tr><tr><td data-v="千代田区-K">千代田区-K</td><td data-v="千代田区">千代田区</td><td data-v="7">7</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="0">—</td><td data-v="0">—</td><td data-v="0">—</td><td data-v="1">✓</td><td data-v="0">—</td><td data-v="2026-07-06">2026-07-06</td></tr><tr><td data-v="千代田区-L">千代田区-L</td><td data-v="千代田区">千代田区</td><td data-v="8">8</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="1">✓</td><td data-v="0">—</td><td data-v="2026-07-06">2026-07-06</td></tr></tbody></table></div>
+<footer>generated 2026-07-06 15:09 UTC · append-only observation history · この表示は事実の記録であり法的判断を含みません</footer>
+</div>
+<script>
+const RUN = {"available": true, "snapshot_date": "2026-07-06", "finished_at": "2026-07-06T15:08:05+00:00", "ok": true, "errors_count": 0, "clinics_total": 20};
+(function() {
+  const dot = document.getElementById('dot');
+  const txt = document.getElementById('statustext');
+  const stale = document.getElementById('staleness');
+  if (!RUN.available) { txt.textContent = 'まだ実行履歴がありません (no runs yet)'; return; }
+  const okColor = getComputedStyle(document.documentElement).getPropertyValue('--good');
+  const badColor = getComputedStyle(document.documentElement).getPropertyValue('--critical');
+  txt.textContent = (RUN.ok ? '✓ 最終実行 成功' : '✗ 最終実行 失敗/要確認') +
+    ' — ' + RUN.snapshot_date + ' (errors: ' + RUN.errors_count + ')';
+  dot.style.background = RUN.ok ? okColor : badColor;
+  const last = new Date(RUN.finished_at || RUN.snapshot_date);
+  if (!isNaN(last)) {
+    const days = Math.floor((Date.now() - last.getTime()) / 86400000);
+    stale.textContent = days + '日前に更新';
+    if (days > 14) {
+      stale.textContent += ' ⚠ 2週間以上更新なし — 要確認 (stale!)';
+      dot.style.background = badColor;
+    }
+  }
+})();
+// sortable table
+(function() {
+  const tbl = document.getElementById('tbl');
+  const ths = tbl.querySelectorAll('th');
+  ths.forEach((th, i) => th.addEventListener('click', () => {
+    const dir = th.dataset.dir === 'asc' ? -1 : 1;
+    ths.forEach(t => delete t.dataset.dir);
+    th.dataset.dir = dir === 1 ? 'asc' : 'desc';
+    const rows = Array.from(tbl.tBodies[0].rows);
+    rows.sort((a, b) => {
+      const av = a.cells[i].dataset.v, bv = b.cells[i].dataset.v;
+      const an = parseFloat(av), bn = parseFloat(bv);
+      if (!isNaN(an) && !isNaN(bn)) return (an - bn) * dir;
+      return String(av).localeCompare(String(bv), 'ja') * dir;
+    });
+    rows.forEach(r => tbl.tBodies[0].appendChild(r));
+  }));
+})();
+</script></body></html>
